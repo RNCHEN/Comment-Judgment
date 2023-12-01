@@ -22,5 +22,5 @@ pos = nx.spring_layout(G)
 nx.draw(G, pos, with_labels=True, font_weight='bold', node_size=700, node_color='skyblue', font_size=8, arrowsize=10)
 
 # show
-plt.savefig('./photo/commentNet.png', dpi=300)
+plt.savefig('commentNet.png', dpi=300)
 plt.show()

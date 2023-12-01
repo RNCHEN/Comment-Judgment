@@ -3,12 +3,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import spacy
 import re
-import community as community_louvain
 import glob
 
-folder_path = r'./dataSet/aclImdb_v1/aclImdb/train/7'
+folder_path = r'./dataSet/aclImdb_v1/aclImdb/train/neg' # Replace with different training set
+networkx_savepath = './anaNet/negALL.txt'
 file_paths = glob.glob(folder_path + '/*.txt')
-save_path = r'MOST3'
 texts = []  # storage all text
 
 for file_path in file_paths:
@@ -109,7 +108,7 @@ setColor()
 getAttribute(G)
 ###  plot
 pos = nx.spring_layout(G)
-networkx_savepath = '7.txt'  # Replace with your desired file path
+
 nx.write_adjlist(G, networkx_savepath)
 
 nx.draw_networkx(G, pos, node_color=node_colors,
@@ -120,5 +119,4 @@ nx.draw_networkx(G, pos, node_color=node_colors,
                  width=0.1)
 
 plt.figure(figsize=(60, 60), dpi=600)
-# plt.savefig('./photo/dataSetG.png', dpi=300)
 plt.show()

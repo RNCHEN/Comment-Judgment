@@ -83,6 +83,6 @@ nx.draw_networkx_nodes(H, pos, nodelist=common_nodes, node_color='salmon', node_
 nx.draw_networkx_edges(H, pos, edgelist=H.edge, edge_color='red', width=2)
 
 # save
-plt.savefig('./photo/matchNet.png', dpi=300)
+plt.savefig('matchNet.png', dpi=300)
 # show
 plt.show()

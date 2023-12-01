@@ -1,10 +1,9 @@
-from afinn import Afinn
 import networkx as nx
 import matplotlib.pyplot as plt
-import spacy
-import re
 import numpy as np
-import glob
+
+# caculate the degree and draw some picture about the network
+
 networkx_savepath = 'neg1000.txt'
 G = nx.read_adjlist(networkx_savepath)
 

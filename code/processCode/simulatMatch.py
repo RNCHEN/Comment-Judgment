@@ -55,5 +55,5 @@ plt.colorbar(sm, label='Node Weight')
 # draw
 ## with no color
 # nx.draw(G, pos, with_labels=True, font_weight='bold', node_size=700, node_color='skyblue', font_size=8, arrows=False)
-plt.savefig('./photo/wordNet.png', dpi=300)
+plt.savefig('wordNet.png', dpi=300)
 plt.show()
