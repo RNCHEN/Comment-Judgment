@@ -76,10 +76,10 @@ filtered_words_set = set(filtered_words)
 common_nodes = filtered_words_set.intersection(nodes_G)
 
 pos = nx.spring_layout(G)
-nx.draw_networkx(G, pos, with_labels=True, font_weight='bold', node_size=700, node_color='skyblue', font_size=8, arrows=False)
+nx.draw_networkx(G, pos, with_labels=True, font_weight='bold', node_size=200, node_color='skyblue', font_size=8, arrows=False)
 
 # The second graph should be drawn on the first Graph
-nx.draw_networkx_nodes(H, pos, nodelist=common_nodes, node_color='salmon', node_size=700)
+nx.draw_networkx_nodes(H, pos, nodelist=common_nodes, node_color='salmon', node_size=200)
 nx.draw_networkx_edges(H, pos, edgelist=H.edge, edge_color='red', width=2)
 
 # save

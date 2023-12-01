@@ -81,7 +81,7 @@ def setColor():
 
 
 def getAttribute(G):
-    print("nodes:", G.nodes)
+    # print("nodes:", G.nodes)
     num_nodes = G.number_of_nodes()
     num_edges = G.number_of_edges()
     density = nx.density(G)
@@ -109,15 +109,15 @@ setColor()
 getAttribute(G)
 ###  plot
 pos = nx.spring_layout(G)
-
+file_path = 'neg.txt'  # Replace with your desired file path
+nx.write_adjlist(G, file_path)
 nx.draw_networkx(G, pos, node_color=node_colors,
                  with_labels=False,
-                 node_size=5,
-                 edge_color='black',
-                 alpha=0.5,
+                 node_size=50,
+                 edge_color='gray',
+                 alpha=1,
                  width=0.1)
 
-plt.figure(figsize=(20, 20), dpi=800)
-plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
-
+plt.figure(figsize=(80, 80), dpi=500)
+# plt.savefig('./photo/dataSetG.png', dpi=300)
 plt.show()
