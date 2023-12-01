@@ -6,7 +6,7 @@ import re
 
 import glob
 
-folder_path = r'./dataSet/aclImdb_v1/aclImdb/train/7'
+folder_path = r'./dataSet/aclImdb_v1/aclImdb/train/1000'
 file_paths = glob.glob(folder_path + '/*.txt')
 save_path = r'MOST3'
 texts = []  # storage all text
@@ -109,8 +109,8 @@ setColor()
 getAttribute(G)
 ###  plot
 pos = nx.spring_layout(G)
-file_path = 'neg.txt'  # Replace with your desired file path
-nx.write_adjlist(G, file_path)
+networkx_savepath = 'neg1000.txt'  # Replace with your desired file path
+nx.write_adjlist(G, networkx_savepath)
 nx.draw_networkx(G, pos, node_color=node_colors,
                  with_labels=False,
                  node_size=50,
@@ -118,6 +118,6 @@ nx.draw_networkx(G, pos, node_color=node_colors,
                  alpha=1,
                  width=0.1)
 
-plt.figure(figsize=(80, 80), dpi=500)
+plt.figure(figsize=(20, 20), dpi=600)
 # plt.savefig('./photo/dataSetG.png', dpi=300)
 plt.show()
