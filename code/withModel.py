@@ -3,10 +3,10 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import spacy
 import re
-
+import community as community_louvain
 import glob
 
-folder_path = r'./dataSet/aclImdb_v1/aclImdb/train/1000'
+folder_path = r'./dataSet/aclImdb_v1/aclImdb/train/7'
 file_paths = glob.glob(folder_path + '/*.txt')
 save_path = r'MOST3'
 texts = []  # storage all text
@@ -34,10 +34,10 @@ nmap = plt.cm.get_cmap("Reds")
 
 
 def clean_text(text):
-    # 移除HTML标签
+    # remove html
     text = re.sub(r'<[^>]+>', '', text)
 
-    # 移除特殊字符
+    # remove special characters
     text = re.sub(r'[^\w\s]', '', text)
 
     return text
@@ -109,15 +109,16 @@ setColor()
 getAttribute(G)
 ###  plot
 pos = nx.spring_layout(G)
-networkx_savepath = 'neg1000.txt'  # Replace with your desired file path
+networkx_savepath = '7.txt'  # Replace with your desired file path
 nx.write_adjlist(G, networkx_savepath)
+
 nx.draw_networkx(G, pos, node_color=node_colors,
-                 with_labels=False,
+                 with_labels=True,
                  node_size=50,
                  edge_color='gray',
                  alpha=1,
                  width=0.1)
 
-plt.figure(figsize=(20, 20), dpi=600)
+plt.figure(figsize=(60, 60), dpi=600)
 # plt.savefig('./photo/dataSetG.png', dpi=300)
 plt.show()
