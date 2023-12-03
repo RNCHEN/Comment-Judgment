@@ -4,7 +4,7 @@ import numpy as np
 
 # caculate the degree and draw some picture about the network
 
-networkx_savepath = 'neg1000.txt'
+networkx_savepath = './anaNet/neg1000.txt'
 G = nx.read_adjlist(networkx_savepath)
 
 pos = nx.spring_layout(G)

@@ -14,7 +14,7 @@ def clean_text(text):
 
     return text
 
-networkx_savepath = 'posALL.txt'
+networkx_savepath = './anaNet/posALL.txt'
 G = nx.read_adjlist(networkx_savepath) # read the networkx
 partition = community_louvain.best_partition(G) # get the community
 
