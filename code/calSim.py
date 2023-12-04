@@ -94,28 +94,35 @@ pearson_correlation = np.corrcoef(values_1, values_2)[0, 1]
 print("pearson correlation:", pearson_correlation)
 
 
-# community_sizes = {}
-# for node, community_id in partition.items():
-#     if community_id in community_sizes:
-#         community_sizes[community_id] += 1
-#     else:
-#         community_sizes[community_id] = 1
-#
-# # Num of communities
-# print("Num:", len(community_sizes))
-#
-# # size of each community
-# print("Each size:", community_sizes)
+community_sizes = {}
+for node, community_id in partition.items():
+    if community_id in community_sizes:
+        community_sizes[community_id] += 1
+    else:
+        community_sizes[community_id] = 1
+
+# Num of communities
+print("Num:", len(community_sizes))
+
+# size of each community
+print("Each size:", community_sizes)
 # # 计算模块度
 # modularity = community_louvain.modularity(partition, G)
 # print("modularity:", modularity)
 #
-# community_ids = list(set(partition.values()))
-# colors = [community_ids.index(partition[node]) for node in G.nodes()]
-#
+community_ids = list(set(partition.values()))
+colors = [community_ids.index(partition[node]) for node in G.nodes()]
+
 # # visualization
-# nx.draw(G, node_color=colors, with_labels=True)
-# plt.show()
+# all
+nx.draw(G, node_color=colors, with_labels=False)
+plt.show()
+##
+plt.bar(community_sizes.keys(), community_sizes.values())
+plt.title("Size of Communities")
+plt.xlabel("Community ID")
+plt.ylabel("Number of Nodes")
+plt.show()
 # #     draw  / it is not necessary
 # pos = nx.spring_layout(G)
 # nx.draw_networkx(G, pos,
