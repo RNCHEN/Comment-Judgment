@@ -18,8 +18,9 @@ networkx_savepath = './anaNet/posALL.txt'
 G = nx.read_adjlist(networkx_savepath) # read the networkx
 partition = community_louvain.best_partition(G) # get the community
 
-client_1 = r'./dataSet/aclImdb_v1/aclImdb/test/pos/3_7.txt'
-client_2 = r'./dataSet/aclImdb_v1/aclImdb/test/pos/2_7.txt'
+client_1 = r'./dataSet/aclImdb_v1/aclImdb/test/pos/9_7.txt'
+client_2 = r'./dataSet/aclImdb_v1/aclImdb/test/pos/10_7.txt'
+
 texts = []  # storage all text
 texts_2 = []  # storage all text
 text_1 = ''
@@ -79,7 +80,7 @@ normalized_dict_2 = dict(zip(score_1.keys(), normalized_values))
 
 print(normalized_dict_2)
 
-# caculate the cosine similarity
+# caculate the different similarity
 values_1 = np.array(list(normalized_dict_1.values()))
 values_2 = np.array(list(normalized_dict_2.values()))
 
@@ -87,6 +88,34 @@ cosine_similarity = np.dot(values_1, values_2) / (np.linalg.norm(values_1) * np.
 
 print("cosine similarity:", cosine_similarity)
 
+manhattan_distance = np.sum(np.abs(values_1 - values_2))
+print("manhattan distance:", manhattan_distance)
+pearson_correlation = np.corrcoef(values_1, values_2)[0, 1]
+print("pearson correlation:", pearson_correlation)
+
+
+# community_sizes = {}
+# for node, community_id in partition.items():
+#     if community_id in community_sizes:
+#         community_sizes[community_id] += 1
+#     else:
+#         community_sizes[community_id] = 1
+#
+# # Num of communities
+# print("Num:", len(community_sizes))
+#
+# # size of each community
+# print("Each size:", community_sizes)
+# # 计算模块度
+# modularity = community_louvain.modularity(partition, G)
+# print("modularity:", modularity)
+#
+# community_ids = list(set(partition.values()))
+# colors = [community_ids.index(partition[node]) for node in G.nodes()]
+#
+# # visualization
+# nx.draw(G, node_color=colors, with_labels=True)
+# plt.show()
 # #     draw  / it is not necessary
 # pos = nx.spring_layout(G)
 # nx.draw_networkx(G, pos,
